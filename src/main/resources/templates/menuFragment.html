@@ -11,16 +11,22 @@
 </head>
 <body>
 	<div th:fragment="headerMenu">
-		<div class="row justify-content-end">
-			<!-- メニューはgrid2 残り9は自分で空ける -->
-			<img th:src="@{/images/discord_icon.png}" width="100" height="100">
-			<div class="col-3"></div>
-			<nav class="nav nav-pills flex-column flex-sm-row col-8 align-self-center">
-			  <a class="col-3 flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Active</a>
-			  <a class="col-3 flex-sm-fill text-sm-center nav-link" href="#">Longer nav link</a>
-			  <a class="col-3 flex-sm-fill text-sm-center nav-link" href="#">Link</a>
-			  <a class="col-3 flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-			</nav>
+		<div class="row">
+			<div class="col d-flex justify-content-between align-items-end border-bottom">
+				<div>
+					<!-- ディスコードの画像  -->
+					<img th:src="@{/images/discord_icon.png}" width="100" height="100">
+				</div>
+				<div>
+					<!-- ヘッダーのメニュータグ -->
+					<nav class="nav nav-pills nav-justified">
+					  <a class="px-5 py-3 nav-item nav-link active" href="#">Active</a>
+					  <a class="px-5 py-3 nav-item nav-link" href="#">Link</a>
+					  <a class="px-5 py-3 nav-item nav-link" href="#">Link</a>
+					  <a class="px-5 py-3 nav-item nav-link disabled" href="#">Disabled</a>
+					</nav>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
