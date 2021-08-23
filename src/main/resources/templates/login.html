@@ -13,69 +13,31 @@
 </head>
 <body>
 	<!-- firebase の認証ライブラリー(CDN) -->
-  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+	<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+	<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+	<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+	<!-- Add Firebase products that you want to use -->
+	<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
 
+<!--	header fragment 読み込み -->
+	<div class="container-fluid">
+		<div th:include="menuFragment :: headerMenu"></div>
+	</div>
+<!--	認証のUI fragment読み込み  -->
+	<div class="container-fluid">
+		<div class="mt-5"  th:include="firebaseAuthTemplate :: filebaseAuth"></div>
+	</div>
 
-	<form class="botForm" th:action="@{/login}" th:method="post" th:object="${formModel}">
-		<input type="text" name="token">
-		<input type="submit" value="ログイン">
-	</form>
-	<!-- google Oauth認証のボタン -->
-	<div class="g-signin2" data-onsuccess="onSignIn"></div>
-	<h1>Welcome to My Awesome App</h1>
-	<div id="firebaseui-auth-container"></div>
-	<div id="loader">Loading...</div>
-
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
-  <script>
-
-
-
- // Initialize the FirebaseUI Widget using Firebase.
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-    var uiConfig = {
-    		  callbacks: {
-    		    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-    		      // User successfully signed in.
-    		      // Return type determines whether we continue the redirect automatically
-    		      // or whether we leave that to developer to handle.
-    		      return true;
-    		    },
-    		    uiShown: function() {
-    		      // The widget is rendered.
-    		      // Hide the loader.
-    		      document.getElementById('loader').style.display = 'none';
-    		    }
-    		  },
-    		  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-    		  signInFlow: 'popup',
-    		  signInSuccessUrl: '',
-    		  signInOptions: [
-    		    // Leave the lines as is for the providers you want to offer your users.
-    		    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    		    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    		    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    		    firebase.auth.GithubAuthProvider.PROVIDER_ID,
-    		    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    		    firebase.auth.PhoneAuthProvider.PROVIDER_ID
-    		  ],
-    		  // Terms of service url.
-    		  tosUrl: '<your-tos-url>',
-    		  // Privacy policy url.
-    		  privacyPolicyUrl: '<your-privacy-policy-url>'
-    		};
-
-    	ui.start('#firebaseui-auth-container', uiConfig);
-
-
-  </script>
+<!--	<form class="botForm" th:action="@{/login}" th:method="post" th:object="${formModel}">-->
+<!--		<input type="text" name="token">-->
+<!--		<input type="submit" value="ログイン">-->
+<!--	</form>-->
+<!--	footer fragment 読み込み-->
+	<div class="container-fluid">
+		<div th:include="footer :: footer"></div>
+	</div>
 </body>
 </html>
