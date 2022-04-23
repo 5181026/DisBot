@@ -10,7 +10,7 @@ com/example/DisBot/DisBotApplication.java
  com.example.DisBot.DisBotApplication
 com/example/DisBot/data/dto/DisBotDto.java
  com.example.DisBot.data.dto.DisBotDto
-com/example/DisBot/data/dto/AnarysisDto.java
- com.example.DisBot.data.dto.AnarysisDto
 com/example/DisBot/data/dto/UserDto.java
  com.example.DisBot.data.dto.UserDto
+com/example/DisBot/data/dto/AnarysisDto.java
+ com.example.DisBot.data.dto.AnarysisDto
